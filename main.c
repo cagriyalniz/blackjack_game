@@ -1,5 +1,34 @@
 #include "card.h"
 
+void put_cards(t_cards *cards)
+{
+    for (int i = 0; i < 8; i++)
+    {
+        printf("%d", cards->number_cards[i]);
+    }
+    for (int j = 0; j < 5; j++)
+    {
+        printf("%c", cards->face_cards[j]);
+    }
+}
+
+
+int give_me_a_card(t_cards *h, t_cards *d, t_cards *c, t_cards *s)
+{
+    srand(time(NULL));
+    
+    int r = rand() % 4;
+    printf("give_me_a_card r %d", r);
+    if (r == 0)
+        return chose_a_card(h);
+    else if (r == 1)
+        return chose_a_card(d);
+    else if (r == 2)
+        return chose_a_card(c);
+    else if (r == 3)
+        return chose_a_card(s);
+    return 0;
+}
 
 int main()
 {
